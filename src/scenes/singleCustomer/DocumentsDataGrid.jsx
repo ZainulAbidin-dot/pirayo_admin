@@ -48,7 +48,7 @@ function DocumentsDataGrid({ data, title }) {
               cursor: "pointer",
             }}
             onClick={() => {
-              setModalImage(params.row.image);
+              setModalImage(params.row.url);
               setOpenModal(true);
             }}
             image={params.row.url}

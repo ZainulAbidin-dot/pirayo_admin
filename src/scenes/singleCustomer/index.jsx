@@ -28,8 +28,10 @@ const SingleCustomer = () => {
   const { data, isLoading, refetch } = useGetSingleCustomerQuery(id);
   const [formData, setFormData] = useState(null);
   const [hovered, setHovered] = useState(false);
+
   const [openModal, setOpenModal] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  
   const [updatedDriverProfileStatus, setUpdatedDriverProfileStatus] =
     useState(null);
   const [updatedPassengerProfileStatus, setUpdatedPassengerProfileStatus] =
