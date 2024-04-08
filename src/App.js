@@ -11,6 +11,7 @@ import SingleCustomer from "scenes/singleCustomer";
 import Customers from "scenes/customers";
 import Transactions from "scenes/transactions";
 import LiveRides from "scenes/liveRides";
+import PendingRides from "scenes/pendingRides";
 import Overview from "scenes/overview";
 import Daily from "scenes/daily";
 import Monthly from "scenes/monthly";
@@ -24,6 +25,7 @@ import TopUp from 'scenes/topUp';
 import SingleTopUp from 'scenes/singleTopUp';
 import Report from 'scenes/reports';
 import SingleReport from 'scenes/singleReport';
+import CustomerCare from 'scenes/customerCare';
 import { setAuthToken } from 'state';
 
 function App() {
@@ -51,12 +53,14 @@ function App() {
                   <Route path="/rapid-rides" element={<RapidRides />} />
                   <Route path="/single-ride/:id" element={<SingleRide />} />
                   <Route path="/live-rides" element={<LiveRides />} />
+                  <Route path="/pending-rides" element={<PendingRides rideType={"Shared"} />} />
                   <Route path="/transactions" element={<Transactions />} />
                   <Route path="/overview" element={<Overview />} />
                   <Route path="/daily" element={<Daily />} />
                   <Route path="/monthly" element={<Monthly />} />
                   <Route path="/breakdown" element={<Breakdown />} />
                   <Route path="/discount" element={<Discount />} />
+                  <Route path="/customer-care" element={<CustomerCare />} />
                   <Route path="/top-up" element={<TopUp />} />
                   <Route path="/single-top-up/:id" element={<SingleTopUp />} />
                   <Route path="/reports" element={<Report />} />

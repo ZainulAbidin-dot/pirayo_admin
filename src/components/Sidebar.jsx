@@ -24,6 +24,7 @@ import {
   PieChartOutlined,
   DiscountOutlined,
   TopicOutlined,
+  PointOfSaleOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -67,17 +68,21 @@ const navItems = [
     icon: <TrendingUpOutlined />,
   },
   {
+    text: "Live-Data",
+    icon: null,
+  },
+  {
     text: "Live-Rides",
+    icon: <PublicOutlined />,
+  },
+  {
+    text: "Pending-Rides",
     icon: <PublicOutlined />,
   },
   {
     text: "Sales",
     icon: null,
   },
-  // {
-  //   text: "Overview",
-  //   icon: <PointOfSaleOutlined />,
-  // },
   // {
   //   text: "Daily",
   //   icon: <TodayOutlined />,
@@ -97,6 +102,10 @@ const navItems = [
   {
     text: "Discount",
     icon: <DiscountOutlined />,
+  },
+  {
+    text: "Customer-Care",
+    icon: <PointOfSaleOutlined />,
   },
   {
     text: "Top-Up",

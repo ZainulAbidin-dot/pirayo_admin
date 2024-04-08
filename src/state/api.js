@@ -19,6 +19,8 @@ export const api = createApi({
     'SharedRides',
     'RapidRides',
     'LiveRides',
+    'SharedPendingRides',
+    'RapidPendingRides',
     'Transactions',
     'Geography',
     'Sales',
@@ -68,6 +70,14 @@ export const api = createApi({
     getLiveRides: build.query({
       query: () => `admin/active-rides`,
       providesTags: ['LiveRides'],
+    }),
+    getSharedPendingRides: build.query({
+      query: () => `admin/shared-rides/ride-requests?status=waiting`,
+      providesTags: ['SharedPendingRides'],
+    }),
+    getRapidPendingRides: build.query({
+      query: () => `admin/rapid-rides/ride-requests?status=waiting`,
+      providesTags: ['RapidPendingRides'],
     }),
     getTransactions: build.query({
       query: ({ page, pageSize, sort, search }) => ({
@@ -143,6 +153,8 @@ export const {
   useGetSharedRidesQuery,
   useGetRapidRidesQuery,
   useGetLiveRidesQuery,
+  useGetSharedPendingRidesQuery,
+  useGetRapidPendingRidesQuery,
   useGetTransactionsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import Header from "components/Header";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { useGetLiveRidesQuery } from "state/api";
 import { useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import carImage from "assets/google-marker-car-image.png";
+import { RefreshOutlined } from "@mui/icons-material";
 
 const LiveRides = (props) => {
-  const { data, isLoading } = useGetLiveRidesQuery();
+  const { data, isLoading, refetch } = useGetLiveRidesQuery();
 
   const [latLng, setLatLng] = useState([]);
   const navigate = useNavigate();
@@ -98,20 +99,23 @@ const LiveRides = (props) => {
     ReactDOM.render(React.Children.only(html), document.getElementById("iwd"));
   };
 
-  let iconMarker = new window.google.maps.MarkerImage(
-    carImage,
-    null /* size is determined at runtime */,
-    null /* origin is 0,0 */,
-    null /* anchor is bottom center of the scaled image */,
-    new window.google.maps.Size(64, 64)
-  );
-
   return !isLoading ? (
     <Box m="1.5rem 2.5rem">
       <Header
         title="LIVE RIDES"
         subtitle="Find where your rides are located."
       />
+
+      <Button
+        variant="outlined"
+        color="secondary"
+        type="submit"
+        sx={{ mt: "1rem" }}
+        onClick={() => refetch()}
+      >
+        Refresh <RefreshOutlined sx={{ ml: "5px" }} />
+      </Button>
+
       <Box
         mt="40px"
         mb="40px"
@@ -142,7 +146,7 @@ const LiveRides = (props) => {
                 key={item.rideId}
                 name={item.name}
                 icon={{
-                  url: "/assets/profile.jpg",
+                  url: carImage,
                   origin: new window.google.maps.Point(0, 0),
                   anchor: new window.google.maps.Point(15, 15),
                   scaledSize: new window.google.maps.Size(30, 30),
