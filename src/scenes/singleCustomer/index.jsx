@@ -31,7 +31,7 @@ const SingleCustomer = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [modalImage, setModalImage] = useState("");
-  
+
   const [updatedDriverProfileStatus, setUpdatedDriverProfileStatus] =
     useState(null);
   const [updatedPassengerProfileStatus, setUpdatedPassengerProfileStatus] =
@@ -166,6 +166,8 @@ const SingleCustomer = () => {
 
     // window.location.reload();
   };
+
+  console.log(formData);
 
   return (
     <Box m="1.5rem 2.5rem">

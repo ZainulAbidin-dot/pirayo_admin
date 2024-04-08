@@ -32,7 +32,8 @@ function Documents() {
             data={documentsResponse.data.documents}
             title="User Documents"
           />
-          {documentsResponse.data.vehicles.length > 0 &&
+          {documentsResponse?.data?.vehicles &&
+            documentsResponse.data.vehicles.length > 0 &&
             documentsResponse.data.vehicles.map((vehicle) => (
               <DocumentsDataGrid
                 key={vehicle.id}
